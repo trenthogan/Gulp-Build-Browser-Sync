@@ -1,0 +1,15 @@
+{
+  "name": "hawkins",
+  "version": "0.0.1",
+  "authors": [
+    "trent001 <trenthogan1@gmail.com>"
+  ],
+  "description": "Hawkins Website",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "jquery": "1.11.1"
+  }
+}
