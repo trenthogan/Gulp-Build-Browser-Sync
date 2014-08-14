@@ -1,15 +1,23 @@
 {
-  "name": "hawkins",
+  "name": "Gulp-Build",
   "version": "0.0.1",
   "authors": [
     "trent001 <trenthogan1@gmail.com>"
   ],
-  "description": "Hawkins Website",
+  "description": "",
   "main": "index.html",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "bootstrap": "~3.2.0",
     "jquery": "1.11.1"
+  },
+  "preen": {
+    "jquery": [
+      "dist/*.js"
+    ],
+    "bootstrap": [
+      "dist/**"
+    ]
   }
 }
