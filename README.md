@@ -1,7 +1,7 @@
 Gulp-Build
 ==========
 
-Simple gulp build script for watching and processing sass and javascript
+Simple gulp build script for watching and processing less and javascript
 
 to use:
 
