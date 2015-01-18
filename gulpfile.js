@@ -28,9 +28,9 @@ var paths = {
 
     styles: {
 
-        src: './sass/style.scss',
-        directory: '/sass',
-        includes: './sass/includes/*.scss',
+        src: './less/style.less',
+        directory: '/less',
+        includes: './less/includes/*.less',
         dest: './css'
 
     },
@@ -55,14 +55,18 @@ gulp.task('browser-sync', function() {
 });
 
 
-//Process sass
-gulp.task('sass', function () {
+//Process less
+gulp.task('less', function () {
 
      //Minified Css
      gulp.src( paths.styles.src )
-    .pipe( plugins.rubySass({ style: 'compressed', loadPath : __dirname + paths.styles.directory }))
-    .pipe( plugins.rename('style.min.css') )
+    .pipe( plugins.less({
+      paths: [ __dirname + paths.styles.directory ],
+      compress: true
+    }))
+    .pipe( plugins.rename('style.css') )
     .pipe( gulp.dest( paths.styles.dest ) )
+    .on('error', plugins.util.log)
     .pipe(reload({stream:true}));
 
 
@@ -88,11 +92,11 @@ gulp.task('preen', function(cb) {
 });
 
 
-gulp.task('default', ['sass', 'compressjs', 'browser-sync'], function () {
+gulp.task('default', ['less', 'compressjs', 'browser-sync'], function () {
 
     
-    gulp.watch( paths.styles.src , ['sass'])
-    gulp.watch( paths.styles.includes , ['sass'])
+    gulp.watch( paths.styles.src , ['less'])
+    gulp.watch( paths.styles.includes , ['less'])
     gulp.watch( './js/script.js' , ['compressjs', browserSync.reload])
 
 });
